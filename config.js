@@ -6,7 +6,7 @@ window.CARD = {
   role:     "Business Developer · Energía CAEs",
   tagline:  "Leyton · Eficiencia energética ✦",
   initials: "GO",                          // se muestra si no hay foto
-  photo:    "",                            // ej: "fotos/gonzalo.jpg" (opcional)
+  photo:    "fotos/gonzalo.jpg",           // sube tu foto a fotos/gonzalo.jpg (si no existe, se ven las iniciales)
   logo:     "fotos/leyton-logo.png",       // logo de empresa en la parte superior ("" para ocultar)
 
   bio:      "Business Developer de Energía (CAEs) en Leyton. Ayudo a las empresas a impulsar su eficiencia energética y aprovechar los Certificados de Ahorro Energético.",
