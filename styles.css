@@ -60,6 +60,15 @@ body {
 
 .card-front { display: flex; flex-direction: column; align-items: center; text-align: center; }
 
+.logo {
+  width: 150px;
+  max-width: 60%;
+  height: auto;
+  margin-bottom: 18px;
+  position: relative; z-index: 1;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.35));
+}
+
 .card-back {
   position: absolute;
   inset: 0;

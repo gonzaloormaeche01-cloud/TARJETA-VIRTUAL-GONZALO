@@ -1,5 +1,5 @@
 // Service worker básico para que la app funcione sin conexión
-const CACHE = "tarjeta-virtual-v2";
+const CACHE = "tarjeta-virtual-v3";
 const ASSETS = [
   "./",
   "./index.html",
@@ -8,7 +8,8 @@ const ASSETS = [
   "./app.js",
   "./manifest.json",
   "./icons/icon-192.png",
-  "./icons/icon-512.png"
+  "./icons/icon-512.png",
+  "./fotos/leyton-logo.png"
 ];
 
 self.addEventListener("install", (event) => {

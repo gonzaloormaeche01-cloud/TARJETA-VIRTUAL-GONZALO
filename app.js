@@ -25,11 +25,22 @@
   setText("bio", C.bio);
   setText("location", C.location);
 
+  // Logo de empresa
+  const logoEl = $("logo");
+  if (logoEl) {
+    if (C.logo) { logoEl.src = C.logo; logoEl.alt = (C.name || "") + " logo"; logoEl.hidden = false; }
+    else { logoEl.hidden = true; }
+  }
+
   // Avatar: foto o iniciales
   const avatar = $("avatar");
   if (C.photo) {
-    avatar.style.backgroundImage = `url('${C.photo}')`;
-    avatar.textContent = "";
+    // Precarga: si la foto falla, dejamos las iniciales
+    const probe = new Image();
+    probe.onload = () => { avatar.style.backgroundImage = `url('${C.photo}')`; avatar.textContent = ""; };
+    probe.onerror = () => { if (C.initials) avatar.textContent = C.initials; };
+    probe.src = C.photo;
+    if (C.initials) avatar.textContent = C.initials; // placeholder mientras carga
   } else if (C.initials) {
     avatar.textContent = C.initials;
   }
