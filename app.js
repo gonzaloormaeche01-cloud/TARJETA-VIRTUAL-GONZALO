@@ -49,8 +49,9 @@
   function link(id, href, show) {
     const el = $(id);
     if (!el) return;
-    if (show && href) { el.href = href; el.classList.remove("hidden"); }
-    else { el.classList.add("hidden"); }
+    const item = el.closest(".social-item") || el;
+    if (show && href) { el.href = href; item.classList.remove("hidden"); }
+    else { item.classList.add("hidden"); }
   }
 
   link("link-phone", C.phone ? `tel:${C.phone}` : null, C.phone);

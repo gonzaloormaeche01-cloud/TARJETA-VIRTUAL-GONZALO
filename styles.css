@@ -137,9 +137,14 @@ body {
 .card-back .btn-ghost svg { fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
 
 /* ---------- Redes ---------- */
-.socials { display: flex; gap: 12px; margin-top: 22px; flex-wrap: wrap; justify-content: center; }
+.socials { display: flex; gap: 14px 12px; margin-top: 24px; flex-wrap: wrap; justify-content: center; }
+.social-item {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  width: 64px;
+}
+.social-item.hidden { display: none; }
 .social {
-  width: 46px; height: 46px;
+  width: 48px; height: 48px;
   border-radius: 50%;
   display: grid; place-items: center;
   background: var(--glass);
@@ -148,7 +153,12 @@ body {
 }
 .social:active { transform: scale(0.92); }
 .social svg { width: 22px; height: 22px; fill: var(--text); }
-.social.hidden { display: none; }
+.social-label {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: .2px;
+}
 
 /* ---------- Reverso ---------- */
 .back-title { font-size: 20px; margin-bottom: 12px; }
