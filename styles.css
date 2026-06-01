@@ -1,0 +1,169 @@
+:root {
+  --bg1: #0f172a;
+  --bg2: #1e293b;
+  --accent: #38bdf8;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --glass: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.12);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  min-height: 100%;
+  min-height: 100dvh;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: radial-gradient(1200px 600px at 50% -10%, var(--bg2), var(--bg1) 60%);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: env(safe-area-inset-top) 20px calc(env(safe-area-inset-bottom) + 20px);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Tarjeta con flip ---------- */
+.card {
+  width: min(380px, 92vw);
+  perspective: 1600px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  transition: transform 0.7s cubic-bezier(.2,.8,.2,1);
+  transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner { transform: rotateY(180deg); }
+
+.card-face {
+  position: relative;
+  border-radius: 26px;
+  padding: 34px 26px 28px;
+  background: linear-gradient(160deg, var(--glass), rgba(255,255,255,0.02));
+  border: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 30px 60px -20px rgba(0,0,0,0.7),
+              inset 0 1px 0 rgba(255,255,255,0.08);
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.card-front { display: flex; flex-direction: column; align-items: center; text-align: center; }
+
+.card-back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+}
+
+/* brillo decorativo */
+.glow {
+  position: absolute;
+  top: -60px; left: 50%;
+  width: 260px; height: 260px;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, var(--accent), transparent 70%);
+  opacity: 0.28;
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+/* ---------- Avatar ---------- */
+.avatar {
+  width: 104px; height: 104px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  font-size: 38px; font-weight: 700; letter-spacing: 1px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), #6366f1);
+  box-shadow: 0 12px 30px -8px var(--accent);
+  border: 3px solid rgba(255,255,255,0.25);
+  background-size: cover; background-position: center;
+  margin-bottom: 16px;
+  position: relative; z-index: 1;
+}
+
+.name { font-size: 25px; font-weight: 700; }
+.role { color: var(--accent); font-weight: 600; margin-top: 4px; font-size: 15px; }
+.tagline { color: var(--muted); margin-top: 8px; font-size: 14px; line-height: 1.5; max-width: 280px; }
+
+/* ---------- Botones ---------- */
+.actions { display: flex; flex-direction: column; gap: 10px; width: 100%; margin-top: 22px; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 13px 18px;
+  border-radius: 14px;
+  font-size: 15px; font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform .15s ease, opacity .15s ease, background .2s ease;
+}
+.btn:active { transform: scale(0.97); }
+.btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+.btn-primary {
+  color: #06121f;
+  background: linear-gradient(135deg, var(--accent), #7dd3fc);
+  box-shadow: 0 10px 24px -10px var(--accent);
+}
+.btn-ghost {
+  color: var(--text);
+  background: var(--glass);
+  border-color: var(--border);
+}
+.card-back .btn-ghost svg { fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---------- Redes ---------- */
+.socials { display: flex; gap: 12px; margin-top: 22px; flex-wrap: wrap; justify-content: center; }
+.social {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--glass);
+  border: 1px solid var(--border);
+  transition: transform .15s ease, background .2s ease;
+}
+.social:active { transform: scale(0.92); }
+.social svg { width: 22px; height: 22px; fill: var(--text); }
+.social.hidden { display: none; }
+
+/* ---------- Reverso ---------- */
+.back-title { font-size: 20px; margin-bottom: 12px; }
+.bio { color: var(--muted); line-height: 1.6; font-size: 15px; }
+.details { list-style: none; margin: 20px 0; display: flex; flex-direction: column; gap: 12px; }
+.details li { display: flex; align-items: center; gap: 10px; font-size: 15px; }
+.details a { color: var(--accent); text-decoration: none; word-break: break-all; }
+.card-back .btn { margin-top: auto; align-self: stretch; }
+
+/* ---------- Hints ---------- */
+.install-hint {
+  padding: 12px 20px;
+  border-radius: 30px;
+  border: 1px solid var(--border);
+  background: var(--glass);
+  color: var(--text);
+  font-size: 14px; font-weight: 600;
+  cursor: pointer;
+}
+.footer-hint {
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+  max-width: 320px;
+  line-height: 1.5;
+}
+.footer-hint b { color: var(--text); }

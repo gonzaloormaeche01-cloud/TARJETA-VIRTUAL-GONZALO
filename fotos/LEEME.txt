@@ -1,0 +1,2 @@
+Pon aquí tu foto (ej: gonzalo.jpg) y referénciala en config.js:
+  photo: "fotos/gonzalo.jpg"
