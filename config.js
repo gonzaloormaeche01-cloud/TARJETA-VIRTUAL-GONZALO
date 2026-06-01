@@ -14,7 +14,7 @@ window.CARD = {
   website:  "https://leyton.com/es/eficiencia-energetica/",
 
   // URL pública de ESTA tarjeta (la del QR). Cámbiala si publicas en otra dirección.
-  cardUrl:  "https://gonzaloormaeche01-cloud.github.io/tarjeta-virtual-gonzalo/",
+  cardUrl:  "https://gonzaloormaeche01-cloud.github.io/TARJETA-VIRTUAL-GONZALO/",
   qrImage:  "fotos/qr.png",                // imagen del código QR
 
   // Contacto
