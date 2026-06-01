@@ -1,5 +1,5 @@
 // Service worker básico para que la app funcione sin conexión
-const CACHE = "tarjeta-virtual-v1";
+const CACHE = "tarjeta-virtual-v2";
 const ASSETS = [
   "./",
   "./index.html",

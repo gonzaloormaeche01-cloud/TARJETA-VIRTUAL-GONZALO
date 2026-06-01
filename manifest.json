@@ -1,13 +1,13 @@
 {
-  "name": "Gonzalo Ormaeche · Tarjeta Virtual",
-  "short_name": "Mi Tarjeta",
-  "description": "Tarjeta de presentación digital",
+  "name": "Gonzalo Ormaeche · Leyton",
+  "short_name": "Gonzalo",
+  "description": "Tarjeta de presentación digital — Business Developer Energía CAEs",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#0f172a",
-  "theme_color": "#0f172a",
+  "background_color": "#002D4B",
+  "theme_color": "#002D4B",
   "icons": [
     {
       "src": "icons/icon-192.png",

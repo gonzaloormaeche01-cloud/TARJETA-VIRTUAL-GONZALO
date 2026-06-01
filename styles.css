@@ -87,7 +87,7 @@ body {
   display: grid; place-items: center;
   font-size: 38px; font-weight: 700; letter-spacing: 1px;
   color: #fff;
-  background: linear-gradient(135deg, var(--accent), #6366f1);
+  background: linear-gradient(135deg, var(--accent), var(--bg2));
   box-shadow: 0 12px 30px -8px var(--accent);
   border: 3px solid rgba(255,255,255,0.25);
   background-size: cover; background-position: center;
@@ -116,8 +116,8 @@ body {
 .btn svg { width: 18px; height: 18px; fill: currentColor; }
 
 .btn-primary {
-  color: #06121f;
-  background: linear-gradient(135deg, var(--accent), #7dd3fc);
+  color: #06210f;
+  background: linear-gradient(135deg, var(--accent), #9ed06f);
   box-shadow: 0 10px 24px -10px var(--accent);
 }
 .btn-ghost {
