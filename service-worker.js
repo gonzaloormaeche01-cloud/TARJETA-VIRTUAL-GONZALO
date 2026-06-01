@@ -1,5 +1,7 @@
-// Service worker básico para que la app funcione sin conexión
-const CACHE = "tarjeta-virtual-v4";
+// Service worker — estrategia "network-first":
+// si hay internet, siempre carga la versión más reciente (los cambios se ven al instante).
+// si no hay internet, usa la copia guardada (funciona offline).
+const CACHE = "tarjeta-virtual-v5";
 const ASSETS = [
   "./",
   "./index.html",
@@ -30,12 +32,12 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
   event.respondWith(
-    caches.match(event.request).then((cached) => {
-      return cached || fetch(event.request).then((res) => {
+    fetch(event.request)
+      .then((res) => {
         const copy = res.clone();
         caches.open(CACHE).then((cache) => cache.put(event.request, copy)).catch(() => {});
         return res;
-      }).catch(() => cached);
-    })
+      })
+      .catch(() => caches.match(event.request))
   );
 });
