@@ -168,6 +168,45 @@ body {
 .details a { color: var(--accent); text-decoration: none; word-break: break-all; }
 .card-back .btn { margin-top: auto; align-self: stretch; }
 
+/* ---------- Ventana QR ---------- */
+.qr-overlay {
+  position: fixed; inset: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  background: rgba(0, 18, 30, 0.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: fade .2s ease;
+}
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+.qr-box {
+  position: relative;
+  width: min(340px, 90vw);
+  background: #fff;
+  color: #002D4B;
+  border-radius: 24px;
+  padding: 28px 24px 24px;
+  text-align: center;
+  box-shadow: 0 30px 70px -20px rgba(0,0,0,0.8);
+}
+.qr-close {
+  position: absolute; top: 10px; right: 14px;
+  border: none; background: transparent;
+  font-size: 30px; line-height: 1; color: #94a3b8;
+  cursor: pointer;
+}
+.qr-title { font-size: 18px; margin-bottom: 18px; color: #002D4B; }
+.qr-img {
+  width: 100%; max-width: 260px; height: auto;
+  border-radius: 12px;
+  border: 6px solid #fff;
+}
+.qr-url {
+  margin-top: 14px; font-size: 13px; font-weight: 600;
+  color: #21557C; word-break: break-all;
+}
+.qr-hint { margin-top: 8px; font-size: 13px; color: #64748b; }
+
 /* ---------- Hints ---------- */
 .install-hint {
   padding: 12px 20px;

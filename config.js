@@ -13,6 +13,10 @@ window.CARD = {
   location: "España",
   website:  "https://leyton.com/es/eficiencia-energetica/",
 
+  // URL pública de ESTA tarjeta (la del QR). Cámbiala si publicas en otra dirección.
+  cardUrl:  "https://gonzaloormaeche01-cloud.github.io/tarjeta-virtual-gonzalo/",
+  qrImage:  "fotos/qr.png",                // imagen del código QR
+
   // Contacto
   email:    "gormaeche@leyton.com",
   phone:    "+34666740072",                // con prefijo

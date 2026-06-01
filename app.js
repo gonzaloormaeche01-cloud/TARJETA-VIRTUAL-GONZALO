@@ -77,6 +77,18 @@
   $("flipBtn")?.addEventListener("click", () => card.classList.add("flipped"));
   $("flipBackBtn")?.addEventListener("click", () => card.classList.remove("flipped"));
 
+  // --- Código QR ---
+  const qrOverlay = $("qrOverlay");
+  if (C.qrImage) $("qrImg")?.setAttribute("src", C.qrImage);
+  const qrUrlEl = $("qrUrl");
+  if (qrUrlEl && C.cardUrl) qrUrlEl.textContent = C.cardUrl.replace(/^https?:\/\//, "");
+  const openQR = () => { if (qrOverlay) qrOverlay.hidden = false; };
+  const closeQR = () => { if (qrOverlay) qrOverlay.hidden = true; };
+  $("qrBtn")?.addEventListener("click", openQR);
+  $("qrClose")?.addEventListener("click", closeQR);
+  qrOverlay?.addEventListener("click", (e) => { if (e.target === qrOverlay) closeQR(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeQR(); });
+
   // --- Guardar contacto (vCard) ---
   function buildVCard() {
     const lines = [
