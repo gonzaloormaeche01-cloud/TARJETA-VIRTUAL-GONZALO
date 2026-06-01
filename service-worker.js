@@ -1,7 +1,7 @@
 // Service worker — estrategia "network-first":
 // si hay internet, siempre carga la versión más reciente (los cambios se ven al instante).
 // si no hay internet, usa la copia guardada (funciona offline).
-const CACHE = "tarjeta-virtual-v6";
+const CACHE = "tarjeta-virtual-v7";
 const ASSETS = [
   "./",
   "./index.html",

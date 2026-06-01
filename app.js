@@ -79,6 +79,7 @@
 
   // --- Código QR ---
   const qrOverlay = $("qrOverlay");
+  if (qrOverlay) qrOverlay.hidden = true; // seguridad: nunca abrir el QR al cargar
   if (C.qrImage) $("qrImg")?.setAttribute("src", C.qrImage);
   const qrUrlEl = $("qrUrl");
   if (qrUrlEl && C.cardUrl) qrUrlEl.textContent = C.cardUrl.replace(/^https?:\/\//, "");
@@ -145,10 +146,22 @@
     if (hint) hint.hidden = false;
   }
 
-  // --- Service worker (offline) ---
+  // --- Service worker (offline) + auto-actualización ---
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
-      navigator.serviceWorker.register("service-worker.js").catch(() => {});
+      navigator.serviceWorker.register("service-worker.js").then((reg) => {
+        reg.update();
+        // Si aparece una versión nueva, recargar para aplicarla
+        reg.addEventListener("updatefound", () => {
+          const nw = reg.installing;
+          if (!nw) return;
+          nw.addEventListener("statechange", () => {
+            if (nw.state === "installed" && navigator.serviceWorker.controller) {
+              location.reload();
+            }
+          });
+        });
+      }).catch(() => {});
     });
   }
 })();
