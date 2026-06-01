@@ -1,43 +1,16 @@
-// Service worker — estrategia "network-first":
-// si hay internet, siempre carga la versión más reciente (los cambios se ven al instante).
-// si no hay internet, usa la copia guardada (funciona offline).
-const CACHE = "tarjeta-virtual-v7";
-const ASSETS = [
-  "./",
-  "./index.html",
-  "./styles.css",
-  "./config.js",
-  "./app.js",
-  "./manifest.json",
-  "./icons/icon-192.png",
-  "./icons/icon-512.png",
-  "./fotos/leyton-logo.png",
-  "./fotos/qr.png"
-];
-
-self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches.open(CACHE).then((cache) => cache.addAll(ASSETS)).then(() => self.skipWaiting())
-  );
-});
+// KILL-SWITCH: desactiva por completo cualquier caché antigua que quedara
+// guardada en dispositivos. Se auto-elimina en la siguiente visita.
+self.addEventListener("install", () => self.skipWaiting());
 
 self.addEventListener("activate", (event) => {
-  event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k)))
-    ).then(() => self.clients.claim())
-  );
-});
-
-self.addEventListener("fetch", (event) => {
-  if (event.request.method !== "GET") return;
-  event.respondWith(
-    fetch(event.request)
-      .then((res) => {
-        const copy = res.clone();
-        caches.open(CACHE).then((cache) => cache.put(event.request, copy)).catch(() => {});
-        return res;
-      })
-      .catch(() => caches.match(event.request))
-  );
+  event.waitUntil((async () => {
+    // Borrar todas las cachés
+    const keys = await caches.keys();
+    await Promise.all(keys.map((k) => caches.delete(k)));
+    // Desregistrar este service worker
+    await self.registration.unregister();
+    // Recargar las pestañas abiertas para que cojan la versión nueva
+    const clients = await self.clients.matchAll({ type: "window" });
+    clients.forEach((client) => client.navigate(client.url));
+  })());
 });

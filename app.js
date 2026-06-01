@@ -146,22 +146,15 @@
     if (hint) hint.hidden = false;
   }
 
-  // --- Service worker (offline) + auto-actualización ---
+  // --- Limpieza de caché antigua ---
+  // Ya NO usamos service worker (causaba que se quedara pegada la versión vieja).
+  // Desregistramos cualquiera que quedara de antes y borramos sus cachés.
   if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker.register("service-worker.js").then((reg) => {
-        reg.update();
-        // Si aparece una versión nueva, recargar para aplicarla
-        reg.addEventListener("updatefound", () => {
-          const nw = reg.installing;
-          if (!nw) return;
-          nw.addEventListener("statechange", () => {
-            if (nw.state === "installed" && navigator.serviceWorker.controller) {
-              location.reload();
-            }
-          });
-        });
-      }).catch(() => {});
-    });
+    navigator.serviceWorker.getRegistrations()
+      .then((regs) => regs.forEach((r) => r.unregister()))
+      .catch(() => {});
+  }
+  if (window.caches && caches.keys) {
+    caches.keys().then((keys) => keys.forEach((k) => caches.delete(k))).catch(() => {});
   }
 })();
