@@ -18,7 +18,7 @@ window.CARD = {
   qrImage:  "fotos/qr.png",                // imagen del código QR
 
   // Contacto
-  email:    "gormaeche@leyton.com",
+  email:    "gormaeche@createk-consultores.es",
   phone:    "+34666740072",                // con prefijo
   whatsapp: "34666740072",                 // sin + ni espacios
 
