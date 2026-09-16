@@ -1,13 +1,13 @@
 {
-  "name": "Gonzalo Ormaeche · Leyton",
+  "name": "Gonzalo Ormaeche · Createk Consultores",
   "short_name": "Gonzalo",
-  "description": "Tarjeta de presentación digital — Business Developer Energía CAEs",
+  "description": "Tarjeta de presentación digital — Createk Consultores: I+D+i, Producciones Audiovisuales y Artes Gráficas",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#002D4B",
-  "theme_color": "#002D4B",
+  "background_color": "#0f3a42",
+  "theme_color": "#0f3a42",
   "icons": [
     {
       "src": "icons/icon-192.png",
