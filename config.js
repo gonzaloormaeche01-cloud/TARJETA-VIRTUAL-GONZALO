@@ -19,8 +19,8 @@ window.CARD = {
 
   // Contacto
   email:    "gormaeche@createk-consultores.es",
-  phone:    "+34666740072",                // con prefijo
-  whatsapp: "34666740072",                 // sin + ni espacios
+  phone:    "+34663830266",                // con prefijo
+  whatsapp: "34663830266",                 // sin + ni espacios
 
   // Redes (deja "" para ocultar el icono)
   linkedin:  "https://www.linkedin.com/in/gonzalo-ormaeche-427a9829b/",
