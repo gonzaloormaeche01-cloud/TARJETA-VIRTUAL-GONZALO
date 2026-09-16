@@ -71,6 +71,17 @@
     if (C.email) { emailText.href = `mailto:${C.email}`; emailText.textContent = C.email; emailText.parentElement.style.display = ""; }
     else { emailText.parentElement.style.display = "none"; }
   }
+  const phoneText = $("phone-text");
+  if (phoneText) {
+    if (C.phone) {
+      phoneText.href = `tel:${C.phone}`;
+      // Formato legible: +34 663 830 266
+      phoneText.textContent = C.phone.replace(/^(\+\d{2})(\d{3})(\d{3})(\d{3})$/, "$1 $2 $3 $4");
+      phoneText.parentElement.style.display = "";
+    } else {
+      phoneText.parentElement.style.display = "none";
+    }
+  }
 
   // --- Voltear tarjeta ---
   const card = $("card");
