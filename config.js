@@ -3,15 +3,15 @@
 // ============================================================
 window.CARD = {
   name:     "Gonzalo Ormaeche Barber",
-  role:     "Business Developer · Energía CAEs",
-  tagline:  "Leyton · Eficiencia energética ✦",
+  role:     "Consultoría de I+D+i · Producciones Audiovisuales · Artes Gráficas",
+  tagline:  "Createk Consultores ✦ Innovación, imagen y comunicación",
   initials: "GO",                          // se muestra si no hay foto
   photo:    "fotos/gonzalo.jpg",           // sube tu foto a fotos/gonzalo.jpg (si no existe, se ven las iniciales)
-  logo:     "fotos/leyton-logo.png",       // logo de empresa en la parte superior ("" para ocultar)
+  logo:     "fotos/createk-logo.svg",      // logo de empresa en la parte superior ("" para ocultar)
 
-  bio:      "Business Developer de Energía (CAEs) en Leyton. Ayudo a las empresas a impulsar su eficiencia energética y aprovechar los Certificados de Ahorro Energético.",
+  bio:      "En Createk Consultores acompaño a empresas en Consultoría de I+D+i, Producciones Audiovisuales y Artes Gráficas: desde impulsar proyectos de innovación hasta crear la imagen y la comunicación que los hacen visibles.",
   location: "España",
-  website:  "https://leyton.com/es/eficiencia-energetica/",
+  website:  "https://createk-consultores.es/",
 
   // URL pública de ESTA tarjeta (la del QR). Cámbiala si publicas en otra dirección.
   cardUrl:  "https://gonzaloormaeche01-cloud.github.io/TARJETA-VIRTUAL-GONZALO/",
@@ -26,10 +26,10 @@ window.CARD = {
   linkedin:  "https://www.linkedin.com/in/gonzalo-ormaeche-427a9829b/",
   instagram: "",
 
-  // Apariencia — colores corporativos Leyton
+  // Apariencia — colores corporativos Createk Consultores
   theme: {
-    bg1: "#002D4B",   // azul marino (fondo degradado 1)
-    bg2: "#21557C",   // azul (fondo degradado 2)
-    accent: "#80BC51" // verde (botones / acento)
+    bg1: "#0f3a42",   // azul-teal oscuro (color de marca / barra de estado)
+    bg2: "#17635f",   // teal medio
+    accent: "#14a79a" // teal-verde (botones / acento)
   }
 };
